@@ -368,14 +368,14 @@ tl.to([P.b1,P.b2,P.b3],{sy:.3,duration:.22,repeat:60,yoyo:true,ease:'sine.inOut'
 gsap.set('#bism',{y:20});
 tl.to('#bism',{opacity:1,y:0,duration:1.1,ease:'power2.out'},.3);
 tl.to('#bism',{opacity:0,y:-20,duration:.6,ease:'power2.in'},2.0);
-cap('c1',2.4,5.0);cap('c2',3.4,5.0);
+cap('c1',2.45,5.4);cap('c2',4.0,5.4);
 tl.fromTo(P.moon,{y:0},{y:-60,duration:5,ease:'none'},0);
 tl.fromTo(P.cam,{y:0,s:1.08},{y:-980,s:1,duration:2.6,ease:'power3.inOut'},2.6);
 tl.to(P.starsG,{o:0,duration:1.6},3.2);
 tl.fromTo(P.sun,{s:.7,o:.6},{s:1,o:1,duration:4,ease:'power1.out'},2.6);
 
 // --- SCENE B: bag falls, passers-by, young man arrives (5 - 11)
-cap('c3',5.4,7.8);
+cap('c3',5.65,8.2);
 tl.to(P.el_h,{r:14,duration:.3},5.45).to(P.el_af,{r:-50,duration:.3},5.45); // reaches as it slips
 tl.to(P.bag,{r:-15,duration:.25,ease:'power1.in'},5.5);
 tl.to(P.bag,{x:540,duration:.55,ease:'power1.out'},5.75);
@@ -390,12 +390,12 @@ tl.to(P.el_af,{r:-24,duration:.6},6.6).to(P.el_h,{r:28,duration:.8},6.6);
 tl.to(P.el_u,{r:12,duration:.8},6.6);
 walk('pa',7.3,3.4,-1500);
 walk('pb',7.6,3.4,-1700);
-cap('c4',8.0,10.9);
+cap('c4',8.3,11.05);
 walk('ym',7.4,3.3,520); // -160 -> 360
 tl.to(P.cam,{s:1.06,x:-30,y:-1010,duration:6,ease:'sine.inOut'},5);
 
 // --- SCENE C: stops, helps (11 - 18)
-cap('c5',11.0,14.3);
+cap('c5',11.15,14.3);
 tl.to(P.ym_h,{r:10,duration:.4},10.6);
 tl.to(P.ym_u,{r:40,y:80,duration:.7,ease:'power2.inOut'},11.0);
 tl.to(P.ym_sk,{y:80,sy:.8,k:-8,duration:.7,ease:'power2.inOut'},11.0);
@@ -431,7 +431,7 @@ tl.to(P.ym_h,{r:-4,duration:.5},16.4);
 tl.to(P.el_h,{r:-6,duration:.6},16.8);
 tl.to(P.cam,{s:1.12,x:-120,y:-1060,duration:2.5,ease:'sine.inOut'},15.2);
 // dua
-cap('c7',17.6,19.9);
+cap('c7',17.4,19.9);
 tl.to(P.ym_af,{r:0,duration:.6},17.6);
 tl.to(P.el_af,{r:-40,duration:.7,ease:'back.out(1.4)'},17.8).to(P.el_af_f,{r:-122,duration:.7,ease:'back.out(1.4)'},17.8);
 tl.to(P.el_ab,{r:-30,duration:.7,ease:'back.out(1.4)'},17.9).to(P.el_ab_f,{r:-126,duration:.7,ease:'back.out(1.4)'},17.9);
@@ -442,28 +442,28 @@ tl.fromTo(P.halo,{o:0,s:.4},{o:1,s:1,duration:2.2,ease:'power2.out'},18.3);
 tl.to(P.rays,{o:1,duration:2},18.6);
 tl.to('#glow',{opacity:1,duration:2},18.6);
 tl.to('#dim',{opacity:1,duration:1.4},19.6);
-pts.forEach((p,i)=>{const t=18.4+R()*6.2,d=2+R()*1.8;
+pts.forEach((p,i)=>{const t=18.4+R()*8,d=2+R()*1.8;
   tl.fromTo(p,{o:0,y:0,s:.4},{o:1,y:-120,s:1,duration:d*.35,ease:'power1.out'},t);
   tl.to(p,{y:-420-R()*300,x:(R()-.5)*120,o:0,duration:d*.65,ease:'sine.in'},t+d*.35);});
-tl.to(P.cam,{s:1.3,x:-150,y:-1150,duration:6.5,ease:'sine.inOut'},18.5);
+tl.to(P.cam,{s:1.3,x:-150,y:-1150,duration:8.5,ease:'sine.inOut'},18.5);
 gsap.set('#card',{y:60,scale:.94});
 tl.to('#card',{opacity:1,y:0,scale:1,duration:.9,ease:'back.out(1.5)'},19.9);
 gsap.set('#card .arabic, #card .nl, #card .src',{opacity:0,y:20});
 tl.to('#card .arabic',{opacity:1,y:0,duration:.8,ease:'power2.out'},20.1);
-tl.to('#card .nl',{opacity:1,y:0,duration:.8,ease:'power2.out'},21.3);
-tl.to('#card .src',{opacity:1,y:0,duration:.6,ease:'power2.out'},22.6);
-tl.to('#card',{opacity:0,y:-40,duration:.5,ease:'power2.in'},25.3);
+tl.to('#card .nl',{opacity:1,y:0,duration:.8,ease:'power2.out'},22.0);
+tl.to('#card .src',{opacity:1,y:0,duration:.6,ease:'power2.out'},23.2);
+tl.to('#card',{opacity:0,y:-40,duration:.5,ease:'power2.in'},27.0);
 // --- SCENE E: end card (25.3 - 30)
-tl.to('#flash',{opacity:.55,duration:.25,ease:'power2.out'},25.65).to('#flash',{opacity:0,duration:.6},25.9);
-tl.to('#end',{opacity:1,duration:.5},25.75);
+tl.to('#flash',{opacity:.55,duration:.25,ease:'power2.out'},27.35).to('#flash',{opacity:0,duration:.6},27.6);
+tl.to('#end',{opacity:1,duration:.5},27.45);
 gsap.set('#e1,#e2,#e3,#e4,#e5',{opacity:0,y:40});
-tl.to('#e1',{opacity:1,y:0,duration:.7,ease:'back.out(1.8)'},26.0);
-tl.to('#e2',{opacity:1,y:0,duration:.7,ease:'power2.out'},27.3);
-tl.to('#e3',{opacity:1,y:0,duration:.7,ease:'power2.out'},27.8);
-tl.to('#e4',{opacity:1,y:0,duration:.5,ease:'power2.out'},28.2);
-tl.to('#e5',{opacity:1,y:0,duration:.6,ease:'back.out(2)'},28.8);
-tl.to('#e5',{scale:1.06,duration:.45,repeat:3,yoyo:true,ease:'sine.inOut'},29.4);
-tl.to('#endtxt',{y:-14,duration:5.2,ease:'none'},25.8);
+tl.to('#e1',{opacity:1,y:0,duration:.7,ease:'back.out(1.8)'},27.7);
+tl.to('#e2',{opacity:1,y:0,duration:.7,ease:'power2.out'},29.3);
+tl.to('#e3',{opacity:1,y:0,duration:.7,ease:'power2.out'},29.9);
+tl.to('#e4',{opacity:1,y:0,duration:.5,ease:'power2.out'},30.3);
+tl.to('#e5',{opacity:1,y:0,duration:.6,ease:'back.out(2)'},30.9);
+tl.to('#e5',{scale:1.06,duration:.45,repeat:3,yoyo:true,ease:'sine.inOut'},31.5);
+tl.to('#endtxt',{y:-14,duration:6,ease:'none'},27.5);
 // --- gezichten: knipperen en uitdrukkingen
 function blink(h,t){tl.to([P[h+'_e1'],P[h+'_e2']],{sy:.12,duration:.07,yoyo:true,repeat:1,ease:'power1.inOut'},t);}
 function mouth(h,m,t){['mn','ms','mh'].forEach(k=>tl.to(P[h+'_'+k],{o:k===m?1:0,duration:.25},t));}
@@ -475,12 +475,12 @@ mouth('ym_h','ms',10.6);           // bezorgd als hij het ziet
 mouth('ym_h','mh',13.8);           // glimlach tijdens het helpen
 mouth('el_h','mh',16.6);           // glimlach bij de hand op zijn schouder
 tl.to([P.el_h_e1,P.el_h_e2],{sy:.12,duration:.2},18.0).to([P.el_h_e1,P.el_h_e2],{sy:1,duration:.2},20.2); // ogen dicht tijdens dua
-tl.to(P.el_u,{sy:1.012,duration:1.8,repeat:16,yoyo:true,ease:'sine.inOut'},0);
-tl.set({},{},31);
+tl.to(P.el_u,{sy:1.012,duration:1.8,repeat:19,yoyo:true,ease:'sine.inOut'},0);
+tl.set({},{},33.5);
 
 // ---------- seek API ----------
 const grain=document.getElementById('grain');
-window.__duration=31;
+window.__duration=33.5;
 window.__seek=function(t){TNOW=t;tl.seek(t,false);renderAll();
   const g=rng(Math.floor(t*30)+1);grain.style.transform=`translate(${(g()*80-40).toFixed(0)}px,${(g()*80-40).toFixed(0)}px)`;};
 window.__seek(0);
