@@ -124,7 +124,15 @@ function head(id,c,beardLong){
    <path d="M-48,-56 Q-50,-30 -40,-22 L-30,-56Z" fill="${c.hair}"/>
    <ellipse cx="-10" cy="-44" rx="8" ry="11" fill="${c.skinD}"/>
    <path d="M-48,-56 Q-47,-100 0,-100 Q47,-100 48,-56Z" fill="${c.kufi}"/>
-   <rect x="-49" y="-62" width="98" height="9" rx="4.5" fill="${c.kufiS}"/></g>`;}
+   <rect x="-49" y="-62" width="98" height="9" rx="4.5" fill="${c.kufiS}"/>
+   <ellipse cx="33" cy="-30" rx="8" ry="5" fill="#e0525a" opacity=".28"/>
+   <path d="M2,-54 q7,-5 14,-1 M23,-55 q8,-4 15,1" stroke="${c.brow||c.hair}" stroke-width="4" fill="none" stroke-linecap="round"/>
+   <g id="${id}_e1"><ellipse rx="4.6" ry="6.6" fill="#2a1a14"/><circle cx="1.6" cy="-2.2" r="1.7" fill="#fff"/></g>
+   <g id="${id}_e2"><ellipse rx="5.2" ry="7.2" fill="#2a1a14"/><circle cx="1.8" cy="-2.4" r="1.9" fill="#fff"/></g>
+   <path d="M43,-44 q8,8 0,11" stroke="${c.skinD}" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+   <path id="${id}_mn" d="M24,-21 Q31,-19 38,-21" stroke="#6b2f25" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+   <path id="${id}_ms" d="M24,-18 Q31,-24 38,-18" stroke="#6b2f25" stroke-width="3.6" fill="none" stroke-linecap="round" opacity="0"/>
+   <path id="${id}_mh" d="M22,-23 Q31,-12 40,-23 Q31,-19 22,-23Z" fill="#7a2e26" stroke="#6b2f25" stroke-width="3" stroke-linejoin="round" opacity="0"/></g>`;}
 function leg(id,c){return `<g id="${id}"><rect x="-17" y="-10" width="34" height="242" rx="17" fill="${c.pants}"/>
    <path d="M-17,226 Q-19,252 4,252 L40,252 Q51,250 47,239 Q41,226 18,224Z" fill="${c.shoe}"/></g>`;}
 function man(p,c){return `
@@ -149,7 +157,7 @@ function regMan(p,x,gy,scale,flip){
   part(p+'_lb',-6,-250);part(p+'_lf',6,-250);
   part(p+'_u',0,-250);part(p+'_ub',0,-250,{link:p+'_u'});part(p+'_sk',0,-250);
   part(p+'_h',4,-198);part(p+'_af',4,-170);part(p+'_af_f',0,112);
-  part(p+'_ab',-6,-170);part(p+'_ab_f',0,112);}
+  part(p+'_ab',-6,-170);part(p+'_ab_f',0,112);face(p+'_h');}
 
 function elder(p,c){return `
  <g id="${p}">
@@ -167,12 +175,13 @@ function elder(p,c){return `
    ${arm(p+'_af',c.robe,c.robeD,c.skin)}
   </g>
  </g>`;}
+function face(h){part(h+'_e1',9,-44);part(h+'_e2',29,-44);part(h+'_mn');part(h+'_ms',0,0,{o:0});part(h+'_mh',0,0,{o:0});}
 function regElder(p,x,gy,flip){
   part(p,x,gy,{sx:flip?-1:1});part(p+'_u',0,-168);part(p+'_h',6,-206);
-  part(p+'_af',6,-192);part(p+'_af_f',0,112);part(p+'_ab',-4,-192);part(p+'_ab_f',0,112);}
+  part(p+'_af',6,-192);part(p+'_af_f',0,112);part(p+'_ab',-4,-192);part(p+'_ab_f',0,112);face(p+'_h');}
 
 const YM={robe:'#2f7a7e',robeL:'#4fa3a5',robeD:'#1f5559',robeDD:'#163f42',skin:'#c98e62',skinD:'#a8714b',hair:'#2a1c13',kufi:'#f4f1ea',kufiS:'#d8d2c4',pants:'#e9e3d6',shoe:'#3b2b22',shoeD:'#2a1f19'};
-const EL={robe:'#6a7aa0',robeL:'#8b9bc0',robeD:'#4d5a7c',robeDD:'#3c4763',skin:'#b98058',skinD:'#97643f',hair:'#e9e5dd',kufi:'#ffffff',kufiS:'#dcd8cf',pants:'#d8d0c0',shoe:'#5a4030',shoeD:'#3e2c21',longBeard:true};
+const EL={robe:'#6a7aa0',robeL:'#8b9bc0',robeD:'#4d5a7c',robeDD:'#3c4763',skin:'#b98058',skinD:'#97643f',hair:'#e9e5dd',brow:'#cfcac0',kufi:'#ffffff',kufiS:'#dcd8cf',pants:'#d8d0c0',shoe:'#5a4030',shoeD:'#3e2c21',longBeard:true};
 const PB1={robe:'#8a7f73',robeL:'#a59a8d',robeD:'#6b6258',robeDD:'#544d45',skin:'#b08060',skinD:'#8f6448',hair:'#3a3029',kufi:'#cfc8bb',kufiS:'#b3ac9f',pants:'#c9c1b3',shoe:'#4a3c32',shoeD:'#3a2f28'};
 const PB2={robe:'#7b6c8a',robeL:'#968aa4',robeD:'#5d5169',robeDD:'#4a4054',skin:'#a87a5c',skinD:'#8a6046',hair:'#2e2620',kufi:'#bfb7c8',kufiS:'#a39cac',pants:'#c4bcb0',shoe:'#3e332c',shoeD:'#302822'};
 
@@ -438,6 +447,17 @@ tl.to('#e4',{opacity:1,y:0,duration:.5,ease:'power2.out'},27.4);
 tl.to('#e5',{opacity:1,y:0,duration:.6,ease:'back.out(2)'},28.0);
 tl.to('#e5',{scale:1.06,duration:.45,repeat:2,yoyo:true,ease:'sine.inOut'},28.6);
 tl.to('#endtxt',{y:-14,duration:4.6,ease:'none'},25.4);
+// --- gezichten: knipperen en uitdrukkingen
+function blink(h,t){tl.to([P[h+'_e1'],P[h+'_e2']],{sy:.12,duration:.07,yoyo:true,repeat:1,ease:'power1.inOut'},t);}
+function mouth(h,m,t){['mn','ms','mh'].forEach(k=>tl.to(P[h+'_'+k],{o:k===m?1:0,duration:.25},t));}
+[1.0,4.2,8.3,12.9,15.2,20.8,23.6].forEach(t=>blink('ym_h',t));
+[0.6,3.4,7.4,10.2,13.6,16.1,22.4,24.6].forEach(t=>blink('el_h',t));
+[7.9,9.1].forEach(t=>{blink('pa_h',t);blink('pb_h',t+.3);});
+mouth('el_h','ms',5.6);            // verdrietig als de tas valt
+mouth('ym_h','ms',10.6);           // bezorgd als hij het ziet
+mouth('ym_h','mh',13.8);           // glimlach tijdens het helpen
+mouth('el_h','mh',16.6);           // glimlach bij de hand op zijn schouder
+tl.to([P.el_h_e1,P.el_h_e2],{sy:.12,duration:.2},18.0).to([P.el_h_e1,P.el_h_e2],{sy:1,duration:.2},20.2); // ogen dicht tijdens dua
 tl.set({},{},30);
 
 // ---------- seek API ----------
