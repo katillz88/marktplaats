@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Het Hart</title>
+<script>
+  window.LANG = new URLSearchParams(location.search).get('lang') || 'en';
+  document.write('<script src="data_' + window.LANG + '.js"><\/script>');
+</script>
+<style>
+@font-face{font-family:Poppins;font-weight:400;src:url(assets/poppins-latin-400-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:600;src:url(assets/poppins-latin-600-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:800;src:url(assets/poppins-latin-800-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:400;src:url(assets/poppins-latin-ext-400-normal.woff2);unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:Poppins;font-weight:600;src:url(assets/poppins-latin-ext-600-normal.woff2);unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:Poppins;font-weight:800;src:url(assets/poppins-latin-ext-800-normal.woff2);unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:Amiri;font-weight:700;src:url(assets/amiri-arabic-700-normal.woff2)}
+:root{--gold:#f2c46d;--gold2:#ffe3a1;--cream:#f5ecd9}
+html,body{margin:0;background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 42%,#18203d 0%,#0b1022 45%,#04060d 100%)}
+svg.full{position:absolute;left:0;top:0}
+.scene{position:absolute;left:0;right:0;text-align:center;opacity:0}
+.sm{font-family:Poppins;font-weight:600;font-size:56px;line-height:1.25;color:var(--cream);padding:0 80px}
+.big{font-family:Poppins;font-weight:800;font-size:132px;line-height:1.02;color:var(--gold);text-transform:uppercase;
+  letter-spacing:-2px;white-space:nowrap;text-shadow:0 0 40px rgba(242,196,109,.35)}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .06em .08em}
+.i{display:inline-block}
+.ch{display:inline-block}
+#count{font-family:Poppins;font-weight:800;font-size:150px;color:transparent;-webkit-text-stroke:3px var(--gold);letter-spacing:2px}
+.ar{font-family:Amiri;font-weight:700;direction:rtl;font-size:76px;line-height:1.7;color:var(--gold2);padding:0 70px;
+  text-shadow:0 0 30px rgba(255,214,130,.35)}
+.tr{font-family:Poppins;font-weight:600;font-size:50px;line-height:1.32;color:#fff;padding:0 80px}
+.src{font-family:Poppins;font-weight:400;font-size:32px;letter-spacing:3px;color:#cdb98d}
+.pill{display:inline-block;padding:24px 58px;border-radius:999px;background:var(--gold);color:#141026;
+  font-family:Poppins;font-weight:800;font-size:46px;box-shadow:0 12px 50px rgba(242,196,109,.4)}
+#bism{font-size:104px}
+.layer{position:absolute;inset:0;pointer-events:none}
+#sweep{position:absolute;left:-60%;top:-20%;width:40%;height:140%;transform:rotate(18deg);
+  background:linear-gradient(90deg,rgba(255,240,200,0),rgba(255,240,200,.16),rgba(255,240,200,0));opacity:0}
+#vig{background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 100%)}
+#grain{opacity:.06;inset:-100px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+#flash{background:#fff4d8;opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <svg class="full" id="bgsvg" width="1080" height="1920">
+    <defs>
+      <pattern id="geo" width="180" height="180" patternUnits="userSpaceOnUse" x="0" y="0">
+        <g transform="translate(90 90)" fill="none" stroke="#f2c46d" stroke-width="2">
+          <rect x="-52" y="-52" width="104" height="104"/><rect x="-52" y="-52" width="104" height="104" transform="rotate(45)"/>
+          <circle r="26"/><path d="M-90,0 L-74,0 M74,0 L90,0 M0,-90 L0,-74 M0,74 L0,90"/></g>
+      </pattern>
+      <radialGradient id="dust"><stop offset="0" stop-color="#fff5d6"/><stop offset=".4" stop-color="#f2c46d" stop-opacity=".8"/><stop offset="1" stop-color="#f2c46d" stop-opacity="0"/></radialGradient>
+      <radialGradient id="heartG" cx=".45" cy=".35"><stop offset="0" stop-color="#ffe9b5"/><stop offset=".55" stop-color="#f2c46d"/><stop offset="1" stop-color="#b8862e"/></radialGradient>
+      <radialGradient id="glowG"><stop offset="0" stop-color="#f2c46d" stop-opacity=".55"/><stop offset="1" stop-color="#f2c46d" stop-opacity="0"/></radialGradient>
+      <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
+    </defs>
+    <g id="pat"><rect x="-900" y="-900" width="2880" height="3720" fill="url(#geo)"/></g>
+    <g id="dustG"></g>
+  </svg>
+
+  <svg class="full" id="fg" width="1080" height="1920">
+    <g id="star" fill="none" stroke="#f2c46d" stroke-linecap="round"></g>
+    <g id="heartW">
+      <circle id="hglow" r="330" fill="url(#glowG)" opacity="0"/>
+      <circle class="rip" r="200" fill="none" stroke="#f2c46d" stroke-width="3" opacity="0"/>
+      <circle class="rip" r="200" fill="none" stroke="#f2c46d" stroke-width="3" opacity="0"/>
+      <circle class="rip" r="200" fill="none" stroke="#f2c46d" stroke-width="3" opacity="0"/>
+      <g id="heart"><path id="hfill" d="M0,95 C-160,-5 -118,-160 0,-82 C118,-160 160,-5 0,95Z" fill="url(#heartG)" opacity="0"/>
+        <path id="hline" d="M0,95 C-160,-5 -118,-160 0,-82 C118,-160 160,-5 0,95Z" fill="none" stroke="#ffe3a1" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></g>
+    </g>
+  </svg>
+
+  <div class="scene" id="s1" style="top:1230px"><div class="ar" id="bism">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div></div>
+  <div class="scene" id="s2" style="top:800px"><div class="sm" id="s2a"></div><div class="big" id="s2b" style="margin-top:26px"></div></div>
+  <div class="scene" id="s3" style="top:700px"><div class="sm" id="s3a"></div><div id="count">0</div><div class="big" id="s3b" style="margin-top:20px"></div></div>
+  <div class="scene" id="s4" style="top:430px"><div class="sm" id="s4a"></div><div class="big" id="s4b" style="margin-top:22px"></div></div>
+  <div class="scene" id="s5" style="top:640px"><div class="ar" id="s5a">إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ</div>
+    <div class="tr" id="s5b" style="margin-top:34px"></div><div class="src" id="s5c" style="margin-top:34px"></div></div>
+  <div class="scene" id="s6" style="top:820px"><div class="big" id="s6a"></div><div class="big" id="s6b" style="margin-top:40px"></div></div>
+  <div class="scene" id="s7" style="top:1060px"><div class="pill" id="cta"></div><div class="src" id="s7s" style="margin-top:40px"></div></div>
+  <div id="sweep"></div>
+  <div id="flash" class="layer"></div>
+  <div id="vig" class="layer"></div>
+  <div id="grain" class="layer"></div>
+</div>
+
+<script src="assets/gsap.min.js"></script>
+<script>
+const TXT={
+ en:{s2a:'We spend our lives worrying about',s2b:'How we look',s3a:'and',s3b:'What we own',
+     s4a:'But Allah is looking at',s4b:'Something else',
+     s5b:'“Allah does not look at your appearance or your wealth, but He looks at your hearts and your deeds.”',
+     s5c:'— SAHIH MUSLIM 2564',s6a:'Purify your heart',s6b:'Perfect your deeds',cta:'Share this reminder 🤍',s7s:'SAHIH MUSLIM 2564'},
+ tr:{s2a:'Hayatımız hep bununla geçiyor:',s2b:'Görünüşümüz',s3a:'ve',s3b:'Sahip olduklarımız',
+     s4a:'Ama Allah bakıyor:',s4b:'Başka bir şeye',
+     s5b:'“Allah sizin suretlerinize ve mallarınıza bakmaz; fakat kalplerinize ve amellerinize bakar.”',
+     s5c:'— SAHÎH-İ MÜSLİM 2564',s6a:'Kalbini arındır',s6b:'Amelini güzelleştir',cta:'Bu hatırlatmayı paylaş 🤍',s7s:'SAHÎH-İ MÜSLİM 2564'}}[LANG];
+document.documentElement.lang=LANG;
+
+// ---------- helpers ----------
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const R=rng(11);
+const $=id=>document.getElementById(id);
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e;}
+function words(id,text,upper){const c=$(id);c.innerHTML='';const out=[];
+  text.split(/\s+/).forEach((w,i)=>{if(i)c.append(' ');const m=document.createElement('span');m.className='m';const s=document.createElement('span');s.className='i';
+    s.textContent=upper?w.toLocaleUpperCase(LANG==='tr'?'tr-TR':'en-US'):w;m.append(s);c.append(m);out.push(s);});return out;}
+function chars(id,text){const c=$(id);c.innerHTML='';const out=[];
+  [...text.toLocaleUpperCase(LANG==='tr'?'tr-TR':'en-US')].forEach(ch=>{const s=document.createElement('span');s.className='ch';s.textContent=ch===' '?' ':ch;c.append(s);out.push(s);});return out;}
+function fit(id,max=960){const e=$(id);let fs=parseFloat(getComputedStyle(e).fontSize);e.style.display='inline-block';
+  while(e.scrollWidth>max&&fs>40){fs-=4;e.style.fontSize=fs+'px';}e.style.display='block';}
+
+// ---------- state for SVG things (rendered every frame) ----------
+const S={starDraw:0,starRot:0,starS:1,starO:1,starY:820,patO:.05,patRot:0,patS:1,count:0,
+  heartDraw:0,heartFill:0,heartS:1,heartY:1180,heartO:1,glow:0,rip:[0,0,0],dustO:.0};
+// star
+const star=$('star');const starParts=[];
+[[340,1.5],[372,1]].forEach(([r,w])=>starParts.push(el('circle',{r,'stroke-width':w*2,pathLength:1,'stroke-dasharray':1,'stroke-dashoffset':1},star)));
+for(let k=0;k<2;k++)starParts.push(el('rect',{x:-210,y:-210,width:420,height:420,transform:`rotate(${k*45})`,'stroke-width':5,pathLength:1,'stroke-dasharray':1,'stroke-dashoffset':1},star));
+for(let k=0;k<2;k++)starParts.push(el('rect',{x:-120,y:-120,width:240,height:240,transform:`rotate(${k*45+22.5})`,'stroke-width':3,pathLength:1,'stroke-dasharray':1,'stroke-dashoffset':1},star));
+starParts.push(el('circle',{r:96,'stroke-width':3,pathLength:1,'stroke-dasharray':1,'stroke-dashoffset':1},star));
+for(let k=0;k<16;k++){const a=k*Math.PI/8;starParts.push(el('line',{x1:Math.cos(a)*300,y1:Math.sin(a)*300,x2:Math.cos(a)*372,y2:Math.sin(a)*372,'stroke-width':2.5,pathLength:1,'stroke-dasharray':1,'stroke-dashoffset':1},star));}
+// dust
+const dust=[];for(let i=0;i<90;i++){const c=el('circle',{r:(1.5+R()*4.5).toFixed(1),fill:'url(#dust)'},$('dustG'));dust.push({c,x:R()*1080,y:R()*1920,v:12+R()*40,ph:R()*6.28,a:.3+R()*.7});}
+const rips=[...document.querySelectorAll('.rip')];
+
+let TNOW=0;
+function render(){
+  const n=starParts.length;starParts.forEach((p,i)=>{const d=Math.min(1,Math.max(0,S.starDraw*1.35-(i/n)*.35));p.setAttribute('stroke-dashoffset',(1-d).toFixed(4));});
+  star.setAttribute('transform',`translate(540 ${S.starY}) rotate(${S.starRot}) scale(${S.starS})`);star.setAttribute('opacity',S.starO);
+  $('pat').setAttribute('opacity',S.patO);$('pat').setAttribute('transform',`translate(540 960) rotate(${S.patRot}) scale(${S.patS}) translate(-540 -960)`);
+  dust.forEach(d=>{let y=(d.y-d.v*TNOW)%1920;if(y<0)y+=1920;const x=d.x+Math.sin(TNOW*.6+d.ph)*20;
+    d.c.setAttribute('cx',x.toFixed(1));d.c.setAttribute('cy',y.toFixed(1));d.c.setAttribute('opacity',(S.dustO*d.a*(.6+.4*Math.sin(TNOW*2+d.ph))).toFixed(3));});
+  $('heartW').setAttribute('transform',`translate(540 ${S.heartY}) scale(${S.heartS})`);$('heartW').setAttribute('opacity',S.heartO);
+  $('hline').setAttribute('stroke-dashoffset',(1-S.heartDraw).toFixed(4));$('hfill').setAttribute('opacity',S.heartFill);
+  $('heart').setAttribute('transform',`scale(1.7)`);$('hglow').setAttribute('opacity',S.glow);
+  rips.forEach((r,i)=>{const p=S.rip[i];r.setAttribute('r',(170+p*420).toFixed(1));r.setAttribute('opacity',(p>0&&p<1?(1-p)*.7:0).toFixed(3));});
+  $('count').textContent=Math.round(S.count).toLocaleString('en-US');
+  const g=rng(Math.floor(TNOW*30)+1);$('grain').style.transform=`translate(${(g()*80-40).toFixed(0)}px,${(g()*80-40).toFixed(0)}px)`;
+}
+
+// ---------- build ----------
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}});
+const SFX=[];const sfx=(t,type)=>SFX.push({t:+t.toFixed(3),type});
+function reveal(ws,t0,span,opt={}){ws.forEach((w,i)=>{const t=t0+(ws.length>1?span*i/(ws.length-1):0);
+  tl.fromTo(w,{yPercent:115,rotate:opt.rot||0},{yPercent:0,rotate:0,duration:opt.d||.55,ease:opt.ease||'power4.out',immediateRender:false},t);});
+  gsap.set(ws,{yPercent:115});}
+function show(id,t){tl.set('#'+id,{opacity:1},t);}
+
+document.fonts.ready.then(()=>{
+  const C=CUES,T=TOTAL; const st=k=>C[k][0], du=k=>C[k][1], en=k=>C[k][0]+C[k][1];
+  // global ambience
+  tl.to(S,{patRot:12,duration:T,ease:'none'},0);
+  tl.to(S,{dustO:1,duration:2},0);
+  tl.to(S,{starRot:40,duration:T,ease:'none'},0);
+
+  // S1 — star draws + bismillah
+  show('s1',0);
+  tl.to(S,{starDraw:1,duration:2.3,ease:'power2.inOut'},0.05);
+  tl.fromTo(S,{starS:.85},{starS:1,duration:2.6,ease:'power2.out',immediateRender:false},0);
+  tl.fromTo('#bism',{opacity:0,scale:1.25,filter:'blur(14px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:1.2},st('v1')+.05);
+  sfx(0.05,'shimmer');
+  // transition -> S2 : zoom through the star
+  const x2=st('v2')-.45;
+  tl.to(S,{starS:5,starO:0,duration:.7,ease:'power3.in'},x2);
+  tl.to('#bism',{opacity:0,scale:.7,filter:'blur(10px)',duration:.45,ease:'power2.in'},x2);
+  tl.fromTo('#sweep',{left:'-60%',opacity:1},{left:'130%',duration:.9,ease:'power2.inOut',immediateRender:false},x2);
+  sfx(x2,'whoosh');
+
+  // S2
+  const a2=words('s2a',TXT.s2a),b2=words('s2b',TXT.s2b,true);fit('s2b');
+  show('s2',st('v2')-.2);
+  reveal(a2,st('v2')-.15,du('v2')*.45,{d:.5});
+  reveal(b2,st('v2')+du('v2')*.55,.22,{d:.7,rot:6});
+  tl.fromTo('#s2b',{scale:.92},{scale:1.04,duration:du('v2')*.6+1,ease:'none',immediateRender:false},st('v2')+du('v2')*.55);
+  sfx(st('v2')+du('v2')*.55,'boom');
+  const x3=st('v3')-.28;
+  tl.to('#s2',{scale:1.18,opacity:0,filter:'blur(14px)',duration:.4,ease:'power2.in'},x3);sfx(x3,'whoosh');
+
+  // S3 — counter + "what we own"
+  const a3=words('s3a',TXT.s3a);const b3=chars('s3b',TXT.s3b);fit('s3b');
+  show('s3',st('v3')-.1);
+  reveal(a3,st('v3')-.05,0,{d:.45});
+  tl.fromTo('#count',{opacity:0,scale:.6},{opacity:1,scale:1,duration:.4,immediateRender:false},st('v3'));
+  tl.fromTo(S,{count:0},{count:1000000,duration:du('v3')+.6,ease:'power2.in',immediateRender:false},st('v3'));
+  gsap.set(b3,{opacity:0,y:60});
+  tl.to(b3,{opacity:1,y:0,duration:.35,stagger:.03,ease:'back.out(2)'},st('v3')+du('v3')*.35);
+  sfx(st('v3')+du('v3')*.35,'boom');
+  // shatter
+  const x4=st('v4')-.35;
+  tl.to(b3,{y:()=>300+R()*500,x:()=>(R()-.5)*300,rotate:()=>(R()-.5)*160,opacity:0,duration:.75,ease:'power2.in',stagger:{each:.012,from:'random'}},x4);
+  tl.to(['#count','#s3a'],{opacity:0,y:-40,duration:.35,ease:'power2.in'},x4);
+  sfx(x4,'shatter');
+
+  // S4 — "but Allah is looking at something else" + heart
+  const a4=words('s4a',TXT.s4a),b4=words('s4b',TXT.s4b,true);fit('s4b');
+  show('s4',st('v4')-.1);
+  reveal(a4,st('v4'),du('v4')*.35,{d:.5});
+  reveal(b4,st('v4')+du('v4')*.5,.2,{d:.7,rot:6});
+  const h0=st('v4')+du('v4')*.45;
+  tl.to(S,{heartDraw:1,duration:1.1,ease:'power2.inOut'},h0);
+  tl.to(S,{heartFill:1,glow:1,duration:.6,ease:'power2.out'},h0+1.0);
+  tl.to(S,{heartS:1.1,duration:.14,yoyo:true,repeat:3,ease:'power2.out'},h0+1.5);
+  tl.fromTo(S.rip,{0:0},{0:1,duration:1.4,ease:'power2.out',immediateRender:false},h0+1.0);
+  tl.fromTo(S.rip,{1:0},{1:1,duration:1.4,ease:'power2.out',immediateRender:false},h0+1.3);
+  tl.fromTo(S.rip,{2:0},{2:1,duration:1.4,ease:'power2.out',immediateRender:false},h0+1.6);
+  tl.to(S,{patO:.11,duration:1.5},h0+1);
+  tl.to('#flash',{opacity:.28,duration:.12},h0+1).to('#flash',{opacity:0,duration:.6},h0+1.12);
+  sfx(h0,'shimmer');sfx(h0+1.0,'beat');sfx(h0+1.28,'beat');
+  // -> S5 : heart rises to emblem
+  const x5=st('v5')-.4;
+  tl.to('#s4',{opacity:0,y:-60,filter:'blur(8px)',duration:.4,ease:'power2.in'},x5);
+  tl.to(S,{heartY:420,heartS:.42,glow:.5,duration:.9,ease:'power3.inOut'},x5);
+  sfx(x5,'whoosh');
+
+  // S5 — hadith
+  const arW=words('s5a',$('s5a').textContent);const trW=words('s5b',TXT.s5b);$('s5c').textContent=TXT.s5c;gsap.set('#s5c',{opacity:0});
+  show('s5',st('v5')-.1);
+  reveal(arW,st('v5')+.1,du('v5')*.45,{d:.6});
+  gsap.set(trW,{yPercent:115});
+  reveal(trW,st('v5')+du('v5')*.27,du('v5')*.66,{d:.5});
+  tl.fromTo('#s5c',{opacity:0,y:20},{opacity:1,y:0,duration:.6,immediateRender:false},en('v5')-.6);
+  tl.to(S,{patS:1.08,duration:du('v5'),ease:'none'},st('v5'));
+  // -> S6
+  const x6=st('v6')-.45;
+  tl.to('#s5',{opacity:0,scale:.94,filter:'blur(10px)',duration:.45,ease:'power2.in'},x6);
+  tl.to(S,{heartO:0,heartS:.2,duration:.45,ease:'power2.in'},x6);
+  tl.fromTo('#sweep',{left:'-60%',opacity:1},{left:'130%',duration:.9,ease:'power2.inOut',immediateRender:false},x6);
+  sfx(x6,'whoosh');
+
+  // S6 — two statements
+  const a6=words('s6a',TXT.s6a,true),b6=words('s6b',TXT.s6b,true);fit('s6a');fit('s6b');
+  show('s6',st('v6')-.1);
+  reveal(a6,st('v6'),.2,{d:.7,rot:5});sfx(st('v6'),'boom');
+  const half=st('v6')+du('v6')*.55;reveal(b6,half,.2,{d:.7,rot:5});sfx(half,'boom');
+  tl.fromTo('#s6',{scale:1},{scale:1.05,duration:du('v6')+1,ease:'none',immediateRender:false},st('v6'));
+
+  // S7 — end card: star returns, CTA
+  const e0=en('v6')+.35;
+  tl.to('#s6',{y:-360,scale:.72,duration:.8,ease:'power3.inOut'},e0);
+  tl.set(S,{starY:1500,starRot:0},e0-.01);
+  tl.fromTo(S,{starO:0,starS:.6,starDraw:0},{starO:.9,starS:.55,starDraw:1,duration:1.4,ease:'power2.inOut',immediateRender:false},e0);
+  $('cta').textContent=TXT.cta;$('s7s').textContent=TXT.s7s;
+  tl.set('#s7',{opacity:1},e0+.3);
+  tl.fromTo('#cta',{opacity:0,scale:.6},{opacity:1,scale:1,duration:.6,ease:'back.out(2)',immediateRender:false},e0+.3);
+  tl.fromTo('#s7s',{opacity:0},{opacity:1,duration:.5,immediateRender:false},e0+.6);
+  tl.to('#cta',{scale:1.06,duration:.45,repeat:3,yoyo:true,ease:'sine.inOut'},e0+1.1);
+  sfx(e0,'shimmer');
+  tl.to('#stage',{opacity:0,duration:.5,ease:'power1.in'},T-.5);
+  tl.set({},{},T);
+
+  window.__sfx=SFX;window.__duration=T;
+  window.__seek=t=>{TNOW=t;tl.seek(t,false);render();};
+  window.__seek(0);
+  window.__ready=true;
+  if(!navigator.webdriver){tl.eventCallback('onUpdate',()=>{TNOW=tl.time();render();});tl.play(0);}
+});
+</script>
+</body>
+</html>
