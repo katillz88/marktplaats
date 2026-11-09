@@ -1,12 +1,15 @@
 <!doctype html>
-<html lang="nl">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
-<title>Help je broeder</title>
+<title>Kardeşine Yardım Et</title>
 <style>
 @font-face{font-family:Poppins;font-weight:400;src:url(assets/poppins-latin-400-normal.woff2)}
 @font-face{font-family:Poppins;font-weight:600;src:url(assets/poppins-latin-600-normal.woff2)}
 @font-face{font-family:Poppins;font-weight:800;src:url(assets/poppins-latin-800-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:400;src:url(assets/poppins-latin-ext-400-normal.woff2);unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:Poppins;font-weight:600;src:url(assets/poppins-latin-ext-600-normal.woff2);unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:Poppins;font-weight:800;src:url(assets/poppins-latin-ext-800-normal.woff2);unicode-range:U+0100-02AF,U+1E00-1EFF}
 @font-face{font-family:Amiri;font-weight:400;src:url(assets/amiri-arabic-400-normal.woff2)}
 @font-face{font-family:Amiri;font-weight:700;src:url(assets/amiri-arabic-700-normal.woff2)}
 html,body{margin:0;background:#000}
@@ -51,13 +54,13 @@ html,body{margin:0;background:#000}
   <div id="dim" class="layer"></div>
   <div id="glow" class="layer"></div>
   <div id="bism" class="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
-  <div class="cap" id="c1" style="top:930px">Eén kleine daad…</div>
-  <div class="cap" id="c2" style="top:1030px">kan <span class="hl">alles</span> veranderen.</div>
-  <div class="cap" id="c3" style="top:330px">Zijn boodschappen vielen op de grond…</div>
-  <div class="cap" id="c4" style="top:330px">Iedereen liep voorbij. <span class="hl">Behalve hij.</span></div>
-  <div class="cap" id="c5" style="top:330px">Hij stopte. <span class="hl">Hij hielp.</span></div>
-  <div class="cap" id="c6" style="top:330px">Zonder iets terug te vragen.</div>
-  <div class="cap" id="c7" style="top:330px">En hij kreeg een <span class="hl">dua</span> terug.</div>
+  <div class="cap" id="c1" style="top:930px">Küçük bir iyilik…</div>
+  <div class="cap" id="c2" style="top:1030px">her şeyi <span class="hl">değiştirebilir.</span></div>
+  <div class="cap" id="c3" style="top:330px">Alışverişi yere düştü…</div>
+  <div class="cap" id="c4" style="top:330px">Herkes geçip gitti. <span class="hl">Biri hariç.</span></div>
+  <div class="cap" id="c5" style="top:330px">Durdu. <span class="hl">Yardım etti.</span></div>
+  <div class="cap" id="c6" style="top:330px">Hiçbir karşılık beklemeden.</div>
+  <div class="cap" id="c7" style="top:330px">Ve bir <span class="hl">dua</span> kazandı.</div>
   <div id="card">
     <svg class="orn" viewBox="-60 -60 120 120">
       <circle r="56" fill="#141c38" stroke="#ffd36b" stroke-width="3"/>
@@ -68,8 +71,8 @@ html,body{margin:0;background:#000}
       <circle r="10" fill="#ffd36b"/>
     </svg>
     <div class="arabic">وَاللَّهُ فِي عَوْنِ الْعَبْدِ<br>مَا كَانَ الْعَبْدُ فِي عَوْنِ أَخِيهِ</div>
-    <div class="nl">“Allah helpt Zijn dienaar, zolang de dienaar zijn broeder helpt.”</div>
-    <div class="src">— SAHIH MUSLIM 2699</div>
+    <div class="nl">“Kul, kardeşinin yardımında olduğu sürece Allah da onun yardımındadır.”</div>
+    <div class="src">— SAHÎH-İ MÜSLİM 2699</div>
   </div>
   <div id="end">
     <svg class="layer" width="1080" height="1920" style="opacity:.07">
@@ -80,11 +83,11 @@ html,body{margin:0;background:#000}
       <rect width="1080" height="1920" fill="url(#geo)"/>
     </svg>
     <div id="endtxt">
-      <div class="big" id="e1">Help vandaag <span class="hl">iemand.</span></div>
-      <div class="q" id="e2">“Wie naar het goede wijst, krijgt dezelfde beloning als degene die het doet.”</div>
+      <div class="big" id="e1">Bugün birine <span class="hl">yardım et.</span></div>
+      <div class="q" id="e2">“Hayra vesile olan, onu yapan gibi sevap kazanır.”</div>
       <div class="ar2" id="e3">مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ</div>
-      <div class="src" id="e4">— SAHIH MUSLIM 1893</div>
-      <div class="cta" id="e5">Deel deze video 🤍</div>
+      <div class="src" id="e4">— SAHÎH-İ MÜSLİM 1893</div>
+      <div class="cta" id="e5">Bu videoyu paylaş 🤍</div>
     </div>
   </div>
   <div id="flash" class="layer"></div>
@@ -101,9 +104,24 @@ const GROUND=2540, W=1080;
 const P={};
 function part(id,bx=0,by=0,o={}){const el=document.getElementById(id);if(!el)throw new Error('no '+id);
   return P[id]=Object.assign({el,bx,by,x:0,y:0,r:0,s:1,sx:1,sy:1,k:0,o:1},o);}
-function renderAll(){for(const id in P){const p=P[id];if(p.link){const l=P[p.link];p.x=l.x;p.y=l.y;p.r=l.r;}
+const WALKERS=[];let OFF={};
+function walker(p,A,dir){const sc=P[p].s;WALKERS.push({p,A,dir,stride:4*245*Math.sin(A*Math.PI/180)*sc});P[p].wk=0;P[p].carry=0;}
+function o(id,k,v){(OFF[id]||(OFF[id]={r:0,y:0,k:0}))[k]+=v;}
+function computeWalk(){OFF={};for(const w of WALKERS){const st=P[w.p],wk=st.wk,p=w.p;
+  // ademhaling (altijd)
+  const br=Math.sin(TNOW*2*Math.PI/3.6+w.A);o(p+'_u','y',br*1.6);o(p+'_h','r',br*.8);
+  if(wk<=0)continue;
+  const a=2*Math.PI*w.dir*st.x/w.stride, s=Math.sin(a), c=Math.cos(a), A=w.A;
+  const hip=245*(1-Math.cos(A*Math.PI/180))*s*s*wk;
+  for(const [leg,ss,cc] of [['_lf',s,c],['_lb',-s,-c]]){o(p+leg,'r',-A*ss*wk);o(p+leg+'_s','r',wk*(38*Math.pow(Math.max(0,cc),1.4)+4));o(p+leg,'y',hip);}
+  o(p+'_u','y',hip);o(p+'_sk','y',hip);o(p+'_u','r',3*wk);o(p+'_h','r',-2*wk);o(p+'_sk','k',5*s*wk);
+  o(p+'_af','r',A*1.25*s*wk*(1-st.carry));o(p+'_af_f','r',-12*wk*(1-st.carry));
+  o(p+'_ab','r',-A*1.25*s*wk);o(p+'_ab_f','r',-12*wk);}}
+let TNOW=0;
+function renderAll(){computeWalk();for(const id in P){const p=P[id];const lk=p.link;const src=lk?P[lk]:p;const of=OFF[lk||id]||{r:0,y:0,k:0};
+  if(lk){p.x=src.x;p.y=src.y;p.r=src.r;}
   if(p.cam){p.el.setAttribute('transform',`translate(540 960) scale(${p.s}) translate(${-540+p.x} ${-960+p.y})`);continue;}
-  p.el.setAttribute('transform',`translate(${(p.bx+p.x).toFixed(2)} ${(p.by+p.y).toFixed(2)}) rotate(${p.r.toFixed(3)}) skewX(${p.k.toFixed(3)}) scale(${(p.s*p.sx).toFixed(4)} ${(p.s*p.sy).toFixed(4)})`);
+  p.el.setAttribute('transform',`translate(${(p.bx+p.x).toFixed(2)} ${(p.by+p.y+of.y).toFixed(2)}) rotate(${(p.r+of.r).toFixed(3)}) skewX(${(p.k+of.k).toFixed(3)}) scale(${(p.s*p.sx).toFixed(4)} ${(p.s*p.sy).toFixed(4)})`);
   p.el.setAttribute('opacity',p.o.toFixed(3));}}
 
 // ---------- characters ----------
@@ -133,11 +151,12 @@ function head(id,c,beardLong){
    <path id="${id}_mn" d="M24,-21 Q31,-19 38,-21" stroke="#6b2f25" stroke-width="3.6" fill="none" stroke-linecap="round"/>
    <path id="${id}_ms" d="M24,-18 Q31,-24 38,-18" stroke="#6b2f25" stroke-width="3.6" fill="none" stroke-linecap="round" opacity="0"/>
    <path id="${id}_mh" d="M22,-23 Q31,-12 40,-23 Q31,-19 22,-23Z" fill="#7a2e26" stroke="#6b2f25" stroke-width="3" stroke-linejoin="round" opacity="0"/></g>`;}
-function leg(id,c){return `<g id="${id}"><rect x="-17" y="-10" width="34" height="242" rx="17" fill="${c.pants}"/>
-   <path d="M-17,226 Q-19,252 4,252 L40,252 Q51,250 47,239 Q41,226 18,224Z" fill="${c.shoe}"/></g>`;}
+function leg(id,c){return `<g id="${id}"><rect x="-18" y="-10" width="36" height="140" rx="18" fill="${c.pants}"/>
+   <g id="${id}_s"><circle r="17" fill="${c.pants}"/><rect x="-16" y="-4" width="32" height="112" rx="16" fill="${c.pants}"/>
+   <path d="M-17,104 Q-19,130 4,130 L40,130 Q51,128 47,117 Q41,104 18,102Z" fill="${c.shoe}"/></g></g>`;}
 function man(p,c){return `
  <g id="${p}">
-  <ellipse cx="0" cy="2" rx="88" ry="13" fill="#000" opacity=".22"/>
+  <ellipse cx="0" cy="2" rx="92" ry="14" fill="#000" opacity=".26" filter="url(#soft)"/>
   ${leg(p+'_lb',{...c,shoe:c.shoeD})}
   ${leg(p+'_lf',c)}
   <g id="${p}_ub"><g id="${p}_ab_w">${arm(p+'_ab',c.robeD,c.robeDD,c.skinD)}</g></g>
@@ -154,7 +173,7 @@ function man(p,c){return `
 function manGrad(p,c){return `<linearGradient id="${p}_g" x1="0" x2="1"><stop offset="0" stop-color="${c.robeD}"/><stop offset=".55" stop-color="${c.robe}"/><stop offset="1" stop-color="${c.robeL}"/></linearGradient>`;}
 function regMan(p,x,gy,scale,flip){
   part(p,x,gy,{s:scale,sx:flip?-1:1});
-  part(p+'_lb',-6,-250);part(p+'_lf',6,-250);
+  part(p+'_lb',-6,-250);part(p+'_lf',6,-250);part(p+'_lb_s',0,120);part(p+'_lf_s',0,120);
   part(p+'_u',0,-250);part(p+'_ub',0,-250,{link:p+'_u'});part(p+'_sk',0,-250);
   part(p+'_h',4,-198);part(p+'_af',4,-170);part(p+'_af_f',0,112);
   part(p+'_ab',-6,-170);part(p+'_ab_f',0,112);face(p+'_h');}
@@ -198,7 +217,7 @@ function minaret(x,top,base,w,col,win){return `
  <path d="M${x-9},${top-150} a11 11 0 1 0 14,-6 a8 8 0 1 1 -14,6Z" fill="${win}"/>
  <rect x="${x-6}" y="${top+140}" width="12" height="40" rx="6" fill="${win}" opacity=".85"/>
  <rect x="${x-6}" y="${top+320}" width="12" height="40" rx="6" fill="${win}" opacity=".85"/>`;}
-function mosque(){const c='#4a3462',win='#ffcf7a';return `<g id="mosque">
+function mosque(){const c='#4a3462',win='#ffcf7a';return `<g id="mosque" filter="url(#dof)">
  ${minaret(250,1880,2340,44,c,win)}${minaret(830,1880,2340,44,c,win)}
  <rect x="330" y="2120" width="420" height="220" fill="${c}"/>
  <path d="M370,2125 Q370,1900 540,1840 Q710,1900 710,2125Z" fill="${c}"/>
@@ -208,7 +227,7 @@ function mosque(){const c='#4a3462',win='#ffcf7a';return `<g id="mosque">
  <path d="M670,2150 Q670,2080 725,2060 Q780,2080 780,2150Z" fill="${c}"/>
  ${[400,470,540,610,680].map(x=>`<path d="M${x-18},2300 L${x-18},2230 Q${x},2200 ${x+18},2230 L${x+18},2300Z" fill="${win}" opacity=".8"/>`).join('')}
  </g>`;}
-function houses(){const c='#5f4573',w='#ffc76e';let s='<g id="houses">';
+function houses(){const c='#5f4573',w='#ffc76e';let s='<g id="houses" filter="url(#dof2)">';
  const hs=[[-20,2150,170],[140,2210,140],[880,2170,150],[1010,2120,120]];
  for(const[x,y,wd] of hs){s+=`<rect x="${x}" y="${y}" width="${wd}" height="${2340-y}" fill="${c}"/>`;
   for(let i=0;i<2;i++)s+=`<path d="M${x+28+i*(wd/2)},${y+90} l0,-30 q16,-22 32,0 l0,30z" fill="${w}" opacity="${R()>.4?.85:.25}"/>`;}
@@ -253,6 +272,9 @@ let parts='';
 for(let i=0;i<60;i++)parts+=`<circle id="pt${i}" r="${(4+R()*7).toFixed(1)}" fill="url(#ptG)"/>`;
 svg.innerHTML=`
 <defs>
+ <filter id="dof" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="2.4"/></filter>
+ <filter id="dof2" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.2"/></filter>
+ <filter id="soft" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="5"/></filter>
  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="2900" gradientUnits="userSpaceOnUse">
   <stop offset="0" stop-color="#07102b"/><stop offset=".3" stop-color="#1b2150"/><stop offset=".52" stop-color="#4b2f6a"/>
   <stop offset=".68" stop-color="#b8577a"/><stop offset=".76" stop-color="#f29b6c"/><stop offset=".82" stop-color="#ffd2a0"/></linearGradient>
@@ -301,6 +323,7 @@ regMan('ym',-160,GROUND,1,false);
 regMan('pa',1250,GROUND-30,.82,true);
 regMan('pb',1420,GROUND-30,.8,true);
 regElder('el',820,GROUND,true);
+walker('ym',15,1);walker('pa',24,-1);walker('pb',24,-1);
 part('bag',0,0,{x:610,y:2390});
 const appleHome=[[592,2392],[618,2394],[604,2384],[628,2386],[598,2388],[612,2382]];
 const appleGround=[[452,2523],[486,2524],[512,2523],[430,2523],[540,2524],[470,2523]];
@@ -316,20 +339,11 @@ P.ym_af.r=4;P.rays.o=0;P.halo.o=0;P.ym_ab.r=-4;
 
 // ---------- timeline ----------
 const tl=gsap.timeline({paused:true,defaults:{ease:'power2.inOut'}});
-function walk(p,t,dur,x0,x1,step=.55,amp=12,carry=false){
-  const n=Math.max(1,Math.round(dur/step));const st=dur/n;
-  tl.to(P[p],{x:x1,duration:dur,ease:'none'},t);
-  tl.to(P[p+'_lf'],{r:-amp,duration:.15},t-.15).to(P[p+'_lb'],{r:amp,duration:.15},t-.15);
-  tl.to(P[p+'_lf'],{r:amp,duration:st,ease:'sine.inOut',repeat:n-1,yoyo:true},t);
-  tl.to(P[p+'_lb'],{r:-amp,duration:st,ease:'sine.inOut',repeat:n-1,yoyo:true},t);
-  if(!carry)tl.fromTo(P[p+'_af'],{r:amp*1.3},{immediateRender:false,r:-amp*1.3,duration:st,ease:'sine.inOut',repeat:n-1,yoyo:true},t);
-  tl.fromTo(P[p+'_ab'],{r:-amp*1.3},{immediateRender:false,r:amp*1.3,duration:st,ease:'sine.inOut',repeat:n-1,yoyo:true},t);
-  tl.to([P[p+'_u'],P[p+'_sk']],{y:-7,duration:st/2,ease:'sine.inOut',repeat:2*n-1,yoyo:true},t);
-  tl.to(P[p+'_sk'],{k:4,duration:st,ease:'sine.inOut',repeat:n-1,yoyo:true},t);
-  const e=t+dur;
-  tl.to([P[p+'_lf'],P[p+'_lb'],P[p+'_ab']],{r:0,duration:.3},e);
-  if(!carry)tl.to(P[p+'_af'],{r:0,duration:.3},e);
-  tl.to([P[p+'_u'],P[p+'_sk']],{y:0,duration:.3},e).to(P[p+'_sk'],{k:0,duration:.3},e);
+function walk(p,t,dur,x1,carry=false){
+  tl.to(P[p],{x:x1,duration:dur,ease:'sine.inOut'},t);
+  tl.to(P[p],{wk:1,duration:Math.min(.5,dur/3),ease:'sine.out'},t);
+  tl.to(P[p],{wk:0,duration:Math.min(.5,dur/3),ease:'sine.in'},t+dur-Math.min(.5,dur/3));
+  if(carry)tl.set(P[p],{carry:1},t);
 }
 function cap(id,t0,t1){const el=document.getElementById(id);
   // split into words, keep spans
@@ -354,14 +368,14 @@ tl.to([P.b1,P.b2,P.b3],{sy:.3,duration:.22,repeat:60,yoyo:true,ease:'sine.inOut'
 gsap.set('#bism',{y:20});
 tl.to('#bism',{opacity:1,y:0,duration:1.1,ease:'power2.out'},.3);
 tl.to('#bism',{opacity:0,y:-20,duration:.6,ease:'power2.in'},2.0);
-cap('c1',2.2,4.9);cap('c2',2.9,4.9);
+cap('c1',2.4,5.0);cap('c2',3.4,5.0);
 tl.fromTo(P.moon,{y:0},{y:-60,duration:5,ease:'none'},0);
 tl.fromTo(P.cam,{y:0,s:1.08},{y:-980,s:1,duration:2.6,ease:'power3.inOut'},2.6);
 tl.to(P.starsG,{o:0,duration:1.6},3.2);
 tl.fromTo(P.sun,{s:.7,o:.6},{s:1,o:1,duration:4,ease:'power1.out'},2.6);
 
 // --- SCENE B: bag falls, passers-by, young man arrives (5 - 11)
-cap('c3',5.2,7.7);
+cap('c3',5.4,7.8);
 tl.to(P.el_h,{r:14,duration:.3},5.45).to(P.el_af,{r:-50,duration:.3},5.45); // reaches as it slips
 tl.to(P.bag,{r:-15,duration:.25,ease:'power1.in'},5.5);
 tl.to(P.bag,{x:540,duration:.55,ease:'power1.out'},5.75);
@@ -374,37 +388,40 @@ for(let i=0;i<6;i++){const a=P['a'+i];const [gx,gy]=appleGround[i];const d=.9+i*
   tl.to(a,{r:-(a.bx-gx)/17*57,duration:d,ease:'power2.out'},5.95);}
 tl.to(P.el_af,{r:-24,duration:.6},6.6).to(P.el_h,{r:28,duration:.8},6.6);
 tl.to(P.el_u,{r:12,duration:.8},6.6);
-walk('pa',7.3,3.1,0,-1500,.42,14);
-walk('pb',7.6,3.1,0,-1700,.45,14);
-cap('c4',7.9,10.8);
-walk('ym',7.6,2.9,0,520,.58,12); // -160 -> 360
+walk('pa',7.3,3.4,-1500);
+walk('pb',7.6,3.4,-1700);
+cap('c4',8.0,10.9);
+walk('ym',7.4,3.3,520); // -160 -> 360
 tl.to(P.cam,{s:1.06,x:-30,y:-1010,duration:6,ease:'sine.inOut'},5);
 
 // --- SCENE C: stops, helps (11 - 18)
-cap('c5',10.9,14.3);
+cap('c5',11.0,14.3);
 tl.to(P.ym_h,{r:10,duration:.4},10.6);
-tl.to(P.ym_u,{r:52,y:12,duration:.6,ease:'power2.inOut'},11.1);
-tl.to(P.ym_sk,{y:6,duration:.6},11.1);
-tl.to(P.ym_af,{r:-40,duration:.6},11.1).to(P.ym_af_f,{r:-10,duration:.6},11.1);
-tl.to(P.ym_ab,{r:-30,duration:.6},11.1);
+tl.to(P.ym_u,{r:40,y:80,duration:.7,ease:'power2.inOut'},11.0);
+tl.to(P.ym_sk,{y:80,sy:.8,k:-8,duration:.7,ease:'power2.inOut'},11.0);
+tl.to([P.ym_lf,P.ym_lb],{y:80,duration:.7,ease:'power2.inOut'},11.0);
+tl.to(P.ym_lf,{r:-60,duration:.7,ease:'power2.inOut'},11.0).to(P.ym_lf_s,{r:92,duration:.7,ease:'power2.inOut'},11.0);
+tl.to(P.ym_lb,{r:-10,duration:.7,ease:'power2.inOut'},11.0).to(P.ym_lb_s,{r:76,duration:.7,ease:'power2.inOut'},11.0);
+tl.to(P.ym_af,{r:-30,duration:.7},11.0).to(P.ym_af_f,{r:-12,duration:.7},11.0);
+tl.to(P.ym_ab,{r:-20,duration:.7},11.0);
 tl.to(P.bag,{r:0,duration:.45,ease:'back.out(1.6)'},11.5);
-tl.to(P.ym_af,{r:-62,duration:.25,repeat:5,yoyo:true,ease:'sine.inOut'},11.7);
+tl.to(P.ym_af,{r:-48,duration:.27,repeat:5,yoyo:true,ease:'sine.inOut'},11.75);
 for(let i=0;i<6;i++){const a=P['a'+i];const t=11.75+i*.27;
   tl.to(a,{x:540-a.bx,duration:.42,ease:'power1.inOut'},t);
-  tl.to(a,{y:2430-a.by,duration:.21,ease:'power2.out'},t).to(a,{y:2450-a.by,duration:.21,ease:'power2.in'},t+.21);
+  tl.to(a,{y:2450-a.by,duration:.21,ease:'power2.out'},t).to(a,{y:2455-a.by,duration:.21,ease:'power2.in'},t+.21);
   tl.to(a,{o:0,duration:.05},t+.4);}
 tl.to(P.bag,{sy:1.06,duration:.1,repeat:5,yoyo:true},11.9);
 // straighten & lift bag
-tl.to(P.ym_u,{r:0,y:0,duration:.6},13.6).to(P.ym_sk,{y:0,duration:.6},13.6);
+tl.to(P.ym_u,{r:0,y:0,duration:.75},13.6).to(P.ym_sk,{y:0,sy:1,k:0,duration:.75},13.6);
+tl.to([P.ym_lf,P.ym_lb,P.ym_lf_s,P.ym_lb_s],{r:0,y:0,duration:.75},13.6);
 tl.to(P.ym_af,{r:0,duration:.6},13.6).to(P.ym_af_f,{r:0,duration:.6},13.6).to(P.ym_ab,{r:0,duration:.6},13.6);
 tl.to(P.ym_h,{r:0,duration:.6},13.6);
-tl.to(P.bag,{x:368,y:2440,duration:.6},13.6);
-cap('c6',14.4,17.6);
-walk('ym',14.4,1.2,520,760,.6,10,true);   // 360 -> 600
-tl.to(P.bag,{x:608,duration:1.2,ease:'none'},14.4);
-tl.to(P.bag,{y:2430,duration:.3,repeat:3,yoyo:true,ease:'sine.inOut'},14.4);
+tl.to(P.bag,{x:368,y:2440,duration:.75},13.6);
+cap('c6',14.5,17.5);
+walk('ym',14.4,1.3,760,true);   // 360 -> 600
+tl.to(P.bag,{x:608,duration:1.3,ease:'sine.inOut'},14.4);
 // hand over bag to lap
-tl.to(P.ym_af,{r:-55,duration:.5},15.7);
+tl.set(P.ym,{carry:0},15.7);tl.to(P.ym_af,{r:-55,duration:.5},15.7);
 tl.to(P.bag,{x:742,y:2346,duration:.55},15.7);
 tl.to(P.el_h,{r:6,duration:.6},16.0).to(P.el_u,{r:4,duration:.6},16.0);
 tl.to(P.el_af,{r:-40,duration:.5},16.0).to(P.el_af_f,{r:-40,duration:.5},16.0);
@@ -414,7 +431,7 @@ tl.to(P.ym_h,{r:-4,duration:.5},16.4);
 tl.to(P.el_h,{r:-6,duration:.6},16.8);
 tl.to(P.cam,{s:1.12,x:-120,y:-1060,duration:2.5,ease:'sine.inOut'},15.2);
 // dua
-cap('c7',17.7,20.0);
+cap('c7',17.6,19.9);
 tl.to(P.ym_af,{r:0,duration:.6},17.6);
 tl.to(P.el_af,{r:-40,duration:.7,ease:'back.out(1.4)'},17.8).to(P.el_af_f,{r:-122,duration:.7,ease:'back.out(1.4)'},17.8);
 tl.to(P.el_ab,{r:-30,duration:.7,ease:'back.out(1.4)'},17.9).to(P.el_ab_f,{r:-126,duration:.7,ease:'back.out(1.4)'},17.9);
@@ -432,21 +449,21 @@ tl.to(P.cam,{s:1.3,x:-150,y:-1150,duration:6.5,ease:'sine.inOut'},18.5);
 gsap.set('#card',{y:60,scale:.94});
 tl.to('#card',{opacity:1,y:0,scale:1,duration:.9,ease:'back.out(1.5)'},19.9);
 gsap.set('#card .arabic, #card .nl, #card .src',{opacity:0,y:20});
-tl.to('#card .arabic',{opacity:1,y:0,duration:.8,ease:'power2.out'},20.3);
-tl.to('#card .nl',{opacity:1,y:0,duration:.8,ease:'power2.out'},21.6);
+tl.to('#card .arabic',{opacity:1,y:0,duration:.8,ease:'power2.out'},20.1);
+tl.to('#card .nl',{opacity:1,y:0,duration:.8,ease:'power2.out'},21.3);
 tl.to('#card .src',{opacity:1,y:0,duration:.6,ease:'power2.out'},22.6);
-tl.to('#card',{opacity:0,y:-40,duration:.5,ease:'power2.in'},25.0);
+tl.to('#card',{opacity:0,y:-40,duration:.5,ease:'power2.in'},25.3);
 // --- SCENE E: end card (25.3 - 30)
-tl.to('#flash',{opacity:.55,duration:.25,ease:'power2.out'},25.25).to('#flash',{opacity:0,duration:.6},25.5);
-tl.to('#end',{opacity:1,duration:.5},25.35);
+tl.to('#flash',{opacity:.55,duration:.25,ease:'power2.out'},25.65).to('#flash',{opacity:0,duration:.6},25.9);
+tl.to('#end',{opacity:1,duration:.5},25.75);
 gsap.set('#e1,#e2,#e3,#e4,#e5',{opacity:0,y:40});
-tl.to('#e1',{opacity:1,y:0,duration:.7,ease:'back.out(1.8)'},25.7);
-tl.to('#e2',{opacity:1,y:0,duration:.7,ease:'power2.out'},26.5);
-tl.to('#e3',{opacity:1,y:0,duration:.7,ease:'power2.out'},27.0);
-tl.to('#e4',{opacity:1,y:0,duration:.5,ease:'power2.out'},27.4);
-tl.to('#e5',{opacity:1,y:0,duration:.6,ease:'back.out(2)'},28.0);
-tl.to('#e5',{scale:1.06,duration:.45,repeat:2,yoyo:true,ease:'sine.inOut'},28.6);
-tl.to('#endtxt',{y:-14,duration:4.6,ease:'none'},25.4);
+tl.to('#e1',{opacity:1,y:0,duration:.7,ease:'back.out(1.8)'},26.0);
+tl.to('#e2',{opacity:1,y:0,duration:.7,ease:'power2.out'},27.3);
+tl.to('#e3',{opacity:1,y:0,duration:.7,ease:'power2.out'},27.8);
+tl.to('#e4',{opacity:1,y:0,duration:.5,ease:'power2.out'},28.2);
+tl.to('#e5',{opacity:1,y:0,duration:.6,ease:'back.out(2)'},28.8);
+tl.to('#e5',{scale:1.06,duration:.45,repeat:3,yoyo:true,ease:'sine.inOut'},29.4);
+tl.to('#endtxt',{y:-14,duration:5.2,ease:'none'},25.8);
 // --- gezichten: knipperen en uitdrukkingen
 function blink(h,t){tl.to([P[h+'_e1'],P[h+'_e2']],{sy:.12,duration:.07,yoyo:true,repeat:1,ease:'power1.inOut'},t);}
 function mouth(h,m,t){['mn','ms','mh'].forEach(k=>tl.to(P[h+'_'+k],{o:k===m?1:0,duration:.25},t));}
@@ -458,15 +475,16 @@ mouth('ym_h','ms',10.6);           // bezorgd als hij het ziet
 mouth('ym_h','mh',13.8);           // glimlach tijdens het helpen
 mouth('el_h','mh',16.6);           // glimlach bij de hand op zijn schouder
 tl.to([P.el_h_e1,P.el_h_e2],{sy:.12,duration:.2},18.0).to([P.el_h_e1,P.el_h_e2],{sy:1,duration:.2},20.2); // ogen dicht tijdens dua
-tl.set({},{},30);
+tl.to(P.el_u,{sy:1.012,duration:1.8,repeat:16,yoyo:true,ease:'sine.inOut'},0);
+tl.set({},{},31);
 
 // ---------- seek API ----------
 const grain=document.getElementById('grain');
-window.__duration=30;
-window.__seek=function(t){tl.seek(t,false);renderAll();
+window.__duration=31;
+window.__seek=function(t){TNOW=t;tl.seek(t,false);renderAll();
   const g=rng(Math.floor(t*30)+1);grain.style.transform=`translate(${(g()*80-40).toFixed(0)}px,${(g()*80-40).toFixed(0)}px)`;};
 window.__seek(0);
-if(!navigator.webdriver){tl.eventCallback('onUpdate',renderAll);tl.play(0);}
+if(!navigator.webdriver){tl.eventCallback('onUpdate',()=>{TNOW=tl.time();renderAll();});tl.play(0);}
 </script>
 </body>
 </html>
