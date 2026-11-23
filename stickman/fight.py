@@ -425,7 +425,7 @@ def main(outfile):
     proc.stdin.close(); proc.wait()
     # write sound cue sheet (output times)
     cues = [dict(t=round(out_time(e["t"]), 3), kind=e["kind"]) for e in EVENTS]
-    cues.append(dict(t=0.15, kind="fight"))
+    cues.append(dict(t=round(out_time(9.98), 3), kind="whoosh"))
     cues.append(dict(t=round(out_time(11.0), 3), kind="ko"))
     with open(outfile.rsplit(".", 1)[0] + "_cues.json", "w") as fh:
         json.dump(dict(duration=OUT_END, cues=cues), fh, indent=1)
