@@ -3,7 +3,7 @@ import math, os, subprocess, tempfile, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-W, H = 720, 1280          # 9:16 Shorts
+W, H = (1280, 720) if os.environ.get("LANDSCAPE") else (720, 1280)   # 16:9 or 9:16 Shorts
 SS = 2                    # supersampling factor for smooth edges
 RW, RH = W * SS, H * SS
 FPS = 30
